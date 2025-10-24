@@ -15,7 +15,7 @@ app = FastAPI()
 # IMPORTANT: I've added your new frontend URL (http://localhost:5173)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:5173","https://nlq-sql-processor.vercel.app/"],
+    allow_origins=["http://localhost:3000", "http://localhost:5173","https://nlq-sql-processor.vercel.app/","https://nlq-to-sql-query-processor.onrender.com/docs"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
