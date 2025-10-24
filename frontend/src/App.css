@@ -1,0 +1,45 @@
+.app-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2a4365; /* A nice, deep blue */
+}
+
+.app-tabs {
+  display: flex;
+  border-bottom: 2px solid #e2e8f0;
+  margin-bottom: 1.5rem;
+}
+
+.app-tabs button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #4a5568; /* Gray text */
+  border-bottom: 3px solid transparent;
+  transform: translateY(2px); /* Aligns with the bottom border */
+}
+
+.app-tabs button:hover {
+  background-color: #f7fafc;
+}
+
+.app-tabs button.active {
+  color: #2b6cb0; /* Blue text */
+  border-bottom-color: #2b6cb0; /* Blue underline */
+}
+
+.app-content {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}

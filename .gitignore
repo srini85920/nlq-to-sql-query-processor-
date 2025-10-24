@@ -1,0 +1,10 @@
+# Ignore node modules and build folders
+/frontend/node_modules
+/frontend/dist
+
+# Ignore Python virtual environment
+/backend/venv
+
+# --- MOST IMPORTANT ---
+# Ignore all .env files
+*.env
