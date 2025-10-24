@@ -13,7 +13,7 @@ function DataManager() {
   // Fetch the database schema
   useEffect(() => {
     setIsLoading(true);
-    axios.get('http://127.0.0.1:8000/api/schema')
+    axios.get('https://nlq-to-sql-query-processor.onrender.com/api/schema')
       .then(response => {
         setSchema(response.data);
         setIsLoading(false);
@@ -50,7 +50,7 @@ function DataManager() {
       Object.entries(formData).filter(([_, value]) => value !== '')
     );
     
-    axios.post('http://127.0.0.1:8000/api/add-record', { table: selectedTable, data: cleanData })
+    axios.post('https://nlq-to-sql-query-processor.onrender.com/api/add-record', { table: selectedTable, data: cleanData })
       .then(response => {
         setMessage({ type: 'success', text: 'Record added successfully!' });
         setFormData({});

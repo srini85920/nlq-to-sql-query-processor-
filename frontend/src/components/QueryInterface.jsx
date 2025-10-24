@@ -16,7 +16,7 @@ function QueryInterface() {
     setResponse(null);
     setShowSql(false); // <-- ADDED: Reset on submit
 
-    axios.post('http://127.0.0.1:8000/api/nlq-to-sql', { question })
+    axios.post('https://nlq-to-sql-query-processor.onrender.com/api/nlq-to-sql', { question })
       .then(res => {
         setResponse(res.data);
         setIsLoading(false);
