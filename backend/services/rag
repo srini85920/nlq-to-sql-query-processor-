@@ -1,0 +1,35 @@
+from langchain.chains import LLMChain
+from langchain.prompts import PromptTemplate
+from services.rag.retriever import PgVectorRetriever
+from services.rag.validator import is_safe_sql
+from services.rag.executor import execute_readonly
+from llm.gemini_client import GeminiProLLM
+#here context is provided to LLM
+def generate_sql_from_nlq(user_query: str):
+   
+    retriever = PgVectorRetriever()
+    context = retriever.get_context(user_query)  
+
+
+    template = PromptTemplate.from_template("""
+    You are an expert SQL generator for an E-commerce database.
+    Context:
+    {context}
+    Question:
+    {question}
+    Generate only the SQL query, no explanation.
+    """)
+    prompt = template.format(context=context, question=user_query)
+
+  
+    llm = GeminiProLLM(temperature=0.2)
+    chain = LLMChain(llm=llm, prompt=template)
+    sql_query = chain.run(context=context, question=user_query)
+
+  #this is validating
+    if not is_safe_sql(sql_query):
+        raise ValueError("Unsafe SQL detected")
+
+   #running pahse
+    result = execute_readonly(sql_query)
+    return {"query": sql_query, "result": result}
