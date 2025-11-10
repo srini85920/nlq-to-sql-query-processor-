@@ -1,0 +1,32 @@
+{"instruction": "Generate SQL from the question using schema info.",
+ "input": "Schema: customers(customer_id, name, city), orders(order_id, customer_id, total_amount). Question: Show total sales by city.",
+ "output": "SELECT c.city, SUM(o.total_amount) AS total_sales FROM customers c JOIN orders o ON c.customer_id=o.customer_id GROUP BY c.city;"}
+
+{"instruction": "Generate SQL for this natural question.",
+ "input": "Schema: products(product_id, name, category, price), order_items(order_id, product_id, quantity). Question: List top 5 products by sales quantity.",
+ "output": "SELECT p.name, SUM(oi.quantity) AS total_sold FROM products p JOIN order_items oi ON p.product_id=oi.product_id GROUP BY p.name ORDER BY total_sold DESC LIMIT 5;"}
+
+{"instruction": "Generate SQL from the question using schema info.",
+ "input": "Schema: customers(customer_id, name, city), orders(order_id, customer_id, total_amount). Question: Show total sales by city sales>500.",
+ "output": "SELECT c.city, SUM(o.total_amount) AS total_sales FROM customers c JOIN orders o ON c.customer_id=o.customer_id where total_sales>500 GROUP BY c.city;"}
+
+{"instruction": "Generate SQL for this natural question.",
+ "input": "Schema: products(product_id, name, category, price), order_items(order_id, product_id, quantity). Question: List all the details of candidate who bought the items in electronis catrory.",
+ "output": "SELECT p.name, SUM(oi.quantity) AS total_sold FROM products p JOIN order_items oi ON p.product_id=oi.product_id where cateogry= Electronics GROUP BY p.name ORDER BY total_sold ;"}
+
+{"instruction": "Generate SQL from the question using schema info.",
+ "input": "Schema: customers(customer_id, name, city), orders(order_id, customer_id, total_amount). Question: Show total sales by city.",
+ "output": "SELECT c.city, SUM(o.total_amount) AS total_sales FROM customers c JOIN orders o ON c.customer_id=o.customer_id GROUP BY c.city;"}
+
+{"instruction": "Generate SQL for this natural question.",
+ "input": "Schema: products(product_id, name, category, price), order_items(order_id, product_id, quantity). Question: List top 5 products by sales quantity.",
+ "output": "SELECT p.name, SUM(oi.quantity) AS total_sold FROM products p JOIN order_items oi ON p.product_id=oi.product_id GROUP BY p.name ORDER BY total_sold DESC LIMIT 5;"}
+
+{"instruction": "Generate SQL from the question using schema info.",
+ "input": "Schema: customers(customer_id, name, city), orders(order_id, customer_id, total_amount). Question: Show total sales by city sales>500.",
+ "output": "SELECT c.city, SUM(o.total_amount) AS total_sales FROM customers c JOIN orders o ON c.customer_id=o.customer_id where total_sales>500 GROUP BY c.city;"}
+
+{"instruction": "Generate SQL for this natural question.",
+ "input": "Schema: products(product_id, name, category, price), order_items(order_id, product_id, quantity). Question: List all the details of candidate who bought the items in electronis catrory.",
+ "output": "SELECT p.name, SUM(oi.quantity) AS total_sold FROM products p JOIN order_items oi ON p.product_id=oi.product_id where cateogry= Electronics GROUP BY p.name ORDER BY total_sold ;"}
+
